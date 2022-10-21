@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>可计算函数 - 笔记</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "\u53ef\u8ba1\u7b97\u51fd\u6570";
+        var mkdocs_page_input_path = "\u53ef\u8ba1\u7b97\u51fd\u6570.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> 笔记
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">可计算函数</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">笔记</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+      <li>可计算函数</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+
+              <script language="javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+              
+                    <h2 id="auto-1">1<span style="margin-left: 1em"></span>&#x4ECB;&#x7ECD;<span style="margin-left: 1em"></span></h2>
+    <p>
+      \(\)<strong>&#x53EF;&#x8BA1;&#x7B97;&#x51FD;&#x6570;</strong>\(F :
+      \mathbb{N} \rightarrow \mathbb{N} \cup \{ \bot
+      \}\)&#x5C31;&#x662F;&#x53EF;&#x4EE5;&#x7528;&#x7F16;&#x7A0B;&#x6765;&#x8BA1;&#x7B97;&#x7684;&#x51FD;&#x6570;.
+      \(F (a) =
+      \bot\)&#x8868;&#x793A;&#x7A0B;&#x5E8F;\(F\)&#x5728;&#x8F93;&#x5165;\(a\)&#x4E0A;&#x9677;&#x5165;&#x6B7B;&#x5FAA;&#x73AF;.
+      &#x8BB0;&#x6240;&#x6709;&#x53EF;&#x8BA1;&#x7B97;&#x51FD;&#x6570;&#x6784;&#x6210;&#x7684;&#x96C6;&#x5408;&#x4E3A;\(\mathbb{C}\mathbb{F}\).
+      &#x82E5;&#x51FD;&#x6570;\(F \in
+      \mathbb{C}\mathbb{F}\)&#x5728;&#x4EFB;&#x4F55;&#x8F93;&#x5165;&#x4E0A;&#x90FD;&#x4E0D;&#x4F1A;&#x9677;&#x5165;&#x6B7B;&#x5FAA;&#x73AF;,
+      &#x5219;&#x79F0;\(F\)&#x4E3A;<strong>&#x5168;&#x53EF;&#x8BA1;&#x7B97;&#x51FD;&#x6570;</strong>,
+      &#x8BB0;&#x6240;&#x6709;&#x5168;&#x53EF;&#x8BA1;&#x7B97;&#x51FD;&#x6570;&#x6784;&#x6210;&#x7684;&#x96C6;&#x5408;&#x4E3A;\(\mathbb{R}\mathbb{C}\mathbb{F}\).
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>Remark <class style="font-style: normal">1</class>.
+      </strong>&#x672C;&#x6587;&#x542B;&#x6709;&#x62BD;&#x8C61;&#x7684;&#x903B;&#x8F91;&#x63A8;&#x7406;,
+      &#x540C;&#x65F6;&#x4E5F;&#x5BF9;&#x5F88;&#x591A;&#x547D;&#x9898;&#x8FDB;&#x884C;&#x4E86;&#x76F4;&#x89C2;&#x7684;&#x89E3;&#x91CA;.
+    </p>
+    <h2 id="auto-2">2<span style="margin-left: 1em"></span>&#x57FA;&#x672C;&#x6982;&#x5FF5;<span style="margin-left: 1em"></span></h2>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>Proposition <class style="font-style: normal">2</class>.
+      </strong><i>&#x5B58;&#x5728;&#x53CC;&#x5C04;\(F : \mathbb{N}^2
+      \rightarrow \mathbb{N}\), &#x4F7F;&#x5F97;\(F\)&#x548C;\(F^{-
+      1}\)&#x90FD;&#x662F;&#x53EF;&#x8BA1;&#x7B97;&#x51FD;&#x6570;.
+      &#x4F8B;&#x5982;, &#x53D6;\(F (m, n) = 2^m (n + 1) - 1\).</i>
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>Proposition <class style="font-style: normal">3</class>. </strong><i><class style="font-style: normal"><strong>(&#x590D;&#x5408;)
+      </strong></class>&#x8BBE;\(F, G \in \mathbb{C}\mathbb{F}\), &#x5219;\(F
+      \circ G \in \mathbb{C}\mathbb{F}\). (\(补充定义\)\(F (\bot) =
+      \bot\))</i>
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>Remark <class style="font-style: normal">4</class>.
+      </strong>&#x5728;&#x540E;&#x6587;&#x4E2D;,
+      &#x6211;&#x4EEC;&#x4E0D;&#x52A0;&#x8BF4;&#x660E;&#x5730;&#x628A;&#x591A;&#x5143;&#x51FD;&#x6570;&#x770B;&#x4F5C;&#x4E00;&#x5143;&#x51FD;&#x6570;,
+      &#x4EE5;&#x4E0A;&#x4E24;&#x547D;&#x9898;&#x4FDD;&#x8BC1;&#x4E86;&#x8FD9;&#x6837;&#x505A;&#x7684;&#x5408;&#x7406;&#x6027;.
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>Remark <class style="font-style: normal">5</class>.
+      </strong>&#x5728;&#x540E;&#x6587;&#x4E2D;&#x6211;&#x4EEC;&#x6781;&#x9891;&#x7E41;&#x5730;&#x7528;&#x5230;&#x590D;&#x5408;&#x51FD;&#x6570;&#x7684;&#x53EF;&#x8BA1;&#x7B97;&#x6027;,
+      &#x7528;&#x5230;&#x65F6;&#x4E0D;&#x4F1A;&#x663E;&#x5F0F;&#x5730;&#x6307;&#x51FA;.
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>Remark <class style="font-style: normal">6</class>.
+      </strong>&#x53EF;&#x4EE5;&#x4ECE;&#x7A0B;&#x5E8F;&#x9677;&#x5165;&#x6B7B;&#x5FAA;&#x73AF;&#x7684;&#x89D2;&#x5EA6;&#x6765;&#x7406;&#x89E3;&#x5B9A;&#x4E49;\(F
+      (\bot) = \bot\)&#x7684;&#x5408;&#x7406;&#x6027;. &#x603B;&#x4E4B;,
+      &#x8865;&#x5145;&#x8FD9;&#x4E2A;&#x5B9A;&#x4E49;&#x4E0D;&#x4F1A;&#x5F15;&#x5165;&#x8C2C;&#x8BEF;,
+      &#x540C;&#x65F6;&#x8BA9;&#x4E00;&#x4E9B;&#x95EE;&#x9898;&#x7684;&#x8868;&#x8FF0;&#x66F4;&#x7B80;&#x6D01;.
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>Proposition <class style="font-style: normal">7</class>. </strong><i><class style="font-style: normal"><strong>(&#x7A7A;&#x51FD;&#x6570;)
+      </strong></class>\(\exists \operatorname{Empty} \in
+      \mathbb{C}\mathbb{F}, \forall x \in
+\mathbb{N}, \operatorname{Empty} (x)
+      = \bot\).</i>
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>Remark <class style="font-style: normal">8</class>.
+      </strong>&#x672C;&#x6587;&#x7684;&#x51FD;&#x6570;&#x547D;&#x540D;&#x9075;&#x5FAA;&#x9996;&#x5B57;&#x6BCD;&#x5927;&#x5199;&#x7684;&#x89C4;&#x5219;.
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>Remark <class style="font-style: normal">9</class>.
+      </strong>&#x7B26;&#x53F7;&quot;=&quot;&#x6709;&#x65F6;&#x8868;&#x793A;&#x51FD;&#x6570;&#x7684;&#x76F8;&#x7B49;,
+      &#x6709;&#x65F6;&#x8868;&#x793A;&#x4E24;&#x4E2A;&#x81EA;&#x7136;&#x6570;&#x76F8;&#x7B49;,
+      &#x8FD9;&#x4E24;&#x79CD;&#x60C5;&#x51B5;&#x5728;&#x524D;&#x6587;&#x90FD;&#x51FA;&#x73B0;&#x8FC7;.
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>Proposition <class style="font-style: normal">10</class>. </strong><i><class style="font-style: normal"><strong>(&#x6052;&#x7B49;&#x51FD;&#x6570;)
+      </strong></class>\(\exists \operatorname{Id} \in
+      \mathbb{R}\mathbb{C}\mathbb{F}, \forall x \in
+\mathbb{N},
+      \operatorname{Id} (x) = x\).</i>
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>Proposition <class style="font-style: normal">11</class>. </strong><i><class style="font-style: normal"><strong>(&#x6295;&#x5F71;&#x51FD;&#x6570;)
+      </strong></class>\(\exists \operatorname{First}, \operatorname{Second}
+      \in
+\mathbb{R}\mathbb{C}\mathbb{F}, \forall x \in \mathbb{N},
+      \operatorname{First}
+(x, y) = x, \operatorname{Second} (x, y) = y\).</i>
+    </p>
+    <p>
+      &#x4EE5;&#x4E0A;&#x51E0;&#x4E2A;&#x547D;&#x9898;&#x53EF;&#x4EE5;&#x7528;&#x7F16;&#x7A0B;&#x8BC1;&#x660E;.
+    </p>
+    <p style="margin-top: 1em">
+      <strong>Proposition <class style="font-style: normal">12</class>. </strong><i><class style="font-style: normal"><strong>(Church&#x516C;&#x7406;)
+      </strong></class>\(\exists [] : N \rightarrow \mathbb{C}\mathbb{F}\),
+      &#x6EE1;&#x8DB3;:</i>
+    </p>
+    <p>
+      <i>(Universal) \(\exists U \in \mathbb{C}\mathbb{F}, \forall n, x \in N,
+      U (n, y) = [n] (x)\); (\(定义 [\bot] =\operatorname{Empty}\))</i>
+    </p>
+    <p style="margin-bottom: 1em">
+      <i>(Godel, &#x5B8C;&#x5907;&#x6027;) \(\forall U \in
+      \mathbb{C}\mathbb{F}, \exists V \in
+\mathbb{R}\mathbb{C}\mathbb{F},
+      \forall n, x \in N, [V (n)] (x) = U (n, x)\).</i>
+    </p>
+    <p>
+      Church&#x516C;&#x7406;&#x8868;&#x660E;&#x4E86;&quot;&#x8BA1;&#x7B97;&quot;&#x5177;&#x6709;&#x5F3A;&#x5927;&#x7684;&#x80FD;&#x529B;,
+      &#x4E0B;&#x6587;&#x5927;&#x591A;&#x6570;&#x547D;&#x9898;&#x7684;&#x8BC1;&#x660E;&#x90FD;&#x9700;&#x8981;&#x7528;&#x5230;Church&#x516C;&#x7406;.
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>Proposition <class style="font-style: normal">13</class>. </strong><i><class style="font-style: normal"><strong>(&#x901A;&#x7528;&#x6027;)
+      </strong></class>\(\forall F \in \mathbb{C}\mathbb{F}, \exists m \in
+      \mathbb{N}, [m] = F\).</i>
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>Proof. </strong>&#x5728;Godel&#x516C;&#x7406;&#x4E2D;&#x53D6;\(U
+      (n, x) = F (x)\), &#x4E8E;&#x662F;\(\exists U \in
+      {\mathbb{R}\mathbb{C}\mathbb{F}}, \forall n, x \in N, [U (n)]
+(x) = F
+      (x)\), &#x56E0;&#x6B64;\(\forall n, [U (n)] = F\), &#x53D6;\(m = U
+      (0)\).<span style="margin-left: 1em"></span>\(\Box\)
+    </p>
+    <p>
+      &#x4ECE;&#x7F16;&#x53F7;&#x7684;&#x89D2;&#x5EA6;&#x6765;&#x7406;&#x89E3;,
+      &#x8FD9;&#x4E2A;&#x547D;&#x9898;&#x8868;&#x660E;,
+      &#x6211;&#x4EEC;&#x6CA1;&#x6709;&#x9057;&#x6F0F;&#x5730;&#x8D4B;&#x4E88;&#x4E86;&#x6BCF;&#x4E2A;\(F
+      \in \mathbb{C}\mathbb{F}\)&#x4E00;&#x4E2A;&#x5E8F;&#x53F7;, \(F =
+      [n]\)&#x8868;&#x793A;&#x51FD;&#x6570;\(F\)&#x7684;&#x5E8F;&#x53F7;&#x662F;\(n\).
+      &#x6B64;&#x5916;,
+      &#x53EF;&#x80FD;&#x6709;&#x591A;&#x4E2A;&#x4E0D;&#x540C;&#x5E8F;&#x53F7;&#x6307;&#x5411;&#x540C;&#x4E00;&#x4E2A;\(F\).
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>Proposition <class style="font-style: normal">14</class>. </strong><i><class style="font-style: normal"><strong>(&#x5BF9;&#x89D2;&#x7EBF;&#x51FD;&#x6570;)
+      </strong></class>\(\exists \operatorname{Diag} \in \mathbb{C}\mathbb{F},
+      \forall x \in
+\mathbb{N}, \operatorname{Diag} (x) = [x] (x)\).</i>
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>Proof. </strong>&#x4EE4;\(\operatorname{Diag} (x)
+      =\operatorname{Universal} (x, x)\).<span style="margin-left: 1em"></span>\(\Box\)
+    </p>
+    <h2 id="auto-3">3<span style="margin-left: 1em"></span>&#x4F8B;&#x9898;<span style="margin-left: 1em"></span></h2>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>Proposition <class style="font-style: normal">15</class>. </strong><i><class style="font-style: normal"><strong>(&#x901A;&#x7528;&#x51FD;&#x6570;)
+      </strong></class>\(\exists \operatorname{Universal} \in
+      \mathbb{C}\mathbb{F}\), \(\forall F \in \mathbb{C}\mathbb{F}\),
+      \(\exists n \in \mathbb{N}\), \(\forall x \in \mathbb{N}\),
+      \(\operatorname{Universal} (x) = x\).</i>
+    </p>
+    <p>
+      &#x9017;&#x53F7;&#x540E;&#x9762;&#x6709;&#x7A7A;&#x683C;.
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>Proposition <class style="font-style: normal">16</class>. </strong><i><class style="font-style: normal"><strong>(Const&#x51FD;&#x6570;)
+      </strong></class>\(\exists \operatorname{Const} \in
+      \mathbb{R}\mathbb{C}\mathbb{F}, \forall x, y
+\in \mathbb{N},
+      [\operatorname{Const} (x)] (y) = x\).</i>
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>Proof.
+      </strong>&#x5728;Godel&#x516C;&#x7406;&#x4E2D;&#x53D6;\(U\)&#x4E3A;&#x6295;&#x5F71;&#x51FD;&#x6570;\(\operatorname{First}\).<span
+      style="margin-left: 1em"></span>\(\Box\)
+    </p>
+    <p>
+      &#x4ECE;&#x7F16;&#x7A0B;&#x7684;&#x89D2;&#x5EA6;&#x6765;&#x7406;&#x89E3;,
+      Const&#x51FD;&#x6570;&#x8F93;&#x5165;\(x\),
+      &#x8F93;&#x51FA;&#x4E00;&#x4E2A;&#x80FD;&#x6253;&#x5370;\(x\)&#x7684;&#x56FE;&#x7075;&#x673A;(&#x7684;&#x7F16;&#x53F7;).
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>Proposition <class style="font-style: normal">17</class>. </strong><i><class style="font-style: normal"><strong>(Compose&#x51FD;&#x6570;)
+      </strong></class>\(\exists \operatorname{Compose} \in
+      \mathbb{R}\mathbb{C}\mathbb{F}, \forall x,
+y, z \in \mathbb{N},
+      [\operatorname{Compose} (x, y)] (z) = [x] ([y] (z))\)\(\).</i>
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>Proof. </strong>\(F (x, y, z) = [x] ([y] (z))\),
+      &#x6CE8;&#x610F;&#x5230;\([x] ([y] (z)) =\operatorname{Universal} (x,
+      \operatorname{Universal} (y, z))\), &#x56E0;&#x6B64;\(F \in
+      \mathbb{R}\mathbb{C}\mathbb{F}\).
+      &#x518D;&#x7531;Godel&#x516C;&#x7406;&#x77E5;\(\exists
+      \operatorname{Compose} \in \mathbb{R}\mathbb{C}\mathbb{F}, \forall x,
+y,
+      z \in \mathbb{N}, [\operatorname{Compose} (x, y)] (z) =\)\(F (x, y,
+      z)\).<span style="margin-left: 1em"></span>\(\Box\)
+    </p>
+    <p>
+      &#x4ECE;&#x7F16;&#x53F7;&#x7684;&#x89D2;&#x5EA6;&#x6765;&#x7406;&#x89E3;,
+      &#x6211;&#x4EEC;&#x80FD;&#x591F;&#x7528;&#x51FD;&#x6570;\(F,
+      G\)&#x7684;&#x7F16;&#x53F7;&#x8BA1;&#x7B97;\(F \circ
+      G\)&#x7684;&#x7F16;&#x53F7;.
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>Proposition <class style="font-style: normal">18</class>. </strong><i><class style="font-style: normal"><strong>(&#x5EF6;&#x62D3;)
+      </strong></class>\(\forall F \in \mathbb{C}\mathbb{F}, \exists G
+      \in
+\mathbb{R}\mathbb{C}\mathbb{F}, \forall x \in \mathbb{N}, [G (x)] =
+      [F (x)]\).</i>
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>Proof. </strong>&#x8BBE;\(U (x, y) = [F (x)]
+      (y)\)=Universal(F(x),y), &#x4E8E;&#x662F;\(U \in \mathbb{C}\mathbb{F}\),
+      &#x518D;&#x7531;Godel&#x516C;&#x7406;&#x77E5;\(\exists G \in
+      \mathbb{R}\mathbb{C}\mathbb{F}, \forall x, y \in \mathbb{N}, [G
+(x)] (y)
+      = U (x, y) = [F (x)] (y)\), &#x56E0;&#x6B64;\([G (x)] = [F (x)]\).<span
+      style="margin-left: 1em"></span>\(\Box\)
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>Proposition <class style="font-style: normal">19</class>. </strong><i><class style="font-style: normal"><strong>(&#x9012;&#x5F52;&#x5B9A;&#x7406;,
+      &#x4E0D;&#x52A8;&#x70B9;&#x5B9A;&#x7406;) </strong></class>\(\forall H
+      \in \mathbb{R}\mathbb{C}\mathbb{F}, \exists n \in N, [H (n)] =
+      [n]\).</i>
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>Proof. </strong>&#x7531;&#x5EF6;&#x62D3;&#x5B9A;&#x7406;,
+      \(\exists G \in \mathbb{R}\mathbb{C}\mathbb{F}, \forall m \in
+      \mathbb{N}, [G
+(m)] = [\operatorname{Diag} (m)]\). &#x4EE4;\(T = H \circ
+      G\), &#x4E8E;&#x662F;, \([H (G (t))] = [T (t)] = [\operatorname{Diag}
+      (t)] = [G (t)]\). &#x53D6;\(n = G (t)\). (\(n \neq \bot\),
+      &#x56E0;&#x4E3A;\(T = H \circ G \in
+      \mathbb{R}\mathbb{C}\mathbb{F}\))<span style="margin-left: 1em"></span>\(\Box\)
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>Proposition <class style="font-style: normal">20</class>. </strong><i><class style="font-style: normal"><strong>(&#x9012;&#x5F52;&#x5B9A;&#x7406;)
+      </strong></class> \(\forall V \in \mathbb{C}\mathbb{F}, \exists n \in
+      \mathbb{N}, \forall x \in
+\mathbb{N}, [n] (x) = V (n, x)\).</i>
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>Proof. </strong>&#x7531;Godel&#x516C;&#x7406;, \(\exists H \in
+      \mathbb{R}\mathbb{C}\mathbb{F}, [H (n)] (x) = V (n, x)\).
+      &#x518D;&#x53D6;\(n\)&#x4E3A;\(H\)&#x7684;&#x4E0D;&#x52A8;&#x70B9;.<span
+      style="margin-left: 1em"></span>\(\Box\)
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>Proposition <class style="font-style: normal">21</class>. </strong><i><class style="font-style: normal"><strong>(&#x8F93;&#x51FA;&#x81EA;&#x8EAB;&#x7684;&#x56FE;&#x7075;&#x673A;)
+      </strong></class>\(\exists n \in \mathbb{N}, \forall x \in \mathbb{N},
+      [n] (x) = n\).</i>
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>Proof.
+      </strong>&#x53D6;\(n\)&#x4E3A;\(\operatorname{Const}\)&#x7684;&#x4E0D;&#x52A8;&#x70B9;.<span
+      style="margin-left: 1em"></span>\(\Box\)
+    </p>
+    <p style="margin-top: 1em">
+      <strong>Proof. </strong>&#x4EE4;\(B (m) =\operatorname{Compose} (m,
+      \operatorname{Const} (m))\), &#x8BBE;\([b] = B\), &#x4EE4;\(n
+      =\operatorname{Compose} (b, \operatorname{Const} (b))\), 
+    </p>
+    <p>
+      &#x4E8E;&#x662F;\(\forall x \in \mathbb{N}\), &#x6709;
+    </p>
+    <center>
+      \begin{eqnarray*}
+  {}[n] (x) & = & [\operatorname{compose} (b, c (b))]
+      (x)\\
+  & = & [b] ([c (b)] (x))\\
+  & = & B (b)\\
+  & = &
+      \operatorname{Compose} (b, \operatorname{Const} (b))\\
+  & = &
+      n
+\end{eqnarray*}
+    </center>
+    <p style="margin-bottom: 1em">
+      <span style="margin-left: 1em"></span>\(\Box\)
+    </p>
+                <!-- <pre><code>&lt;h2 id="auto-1"&gt;1&lt;span style="margin-left: 1em"&gt;&lt;/span&gt;&amp;#x4ECB;&amp;#x7ECD;&lt;span style="margin-left: 1em"&gt;&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;
+  \(\)&lt;strong&gt;&amp;#x53EF;&amp;#x8BA1;&amp;#x7B97;&amp;#x51FD;&amp;#x6570;&lt;/strong&gt;\(F :
+  \mathbb{N} \rightarrow \mathbb{N} \cup \{ \bot
+  \}\)&amp;#x5C31;&amp;#x662F;&amp;#x53EF;&amp;#x4EE5;&amp;#x7528;&amp;#x7F16;&amp;#x7A0B;&amp;#x6765;&amp;#x8BA1;&amp;#x7B97;&amp;#x7684;&amp;#x51FD;&amp;#x6570;.
+  \(F (a) =
+  \bot\)&amp;#x8868;&amp;#x793A;&amp;#x7A0B;&amp;#x5E8F;\(F\)&amp;#x5728;&amp;#x8F93;&amp;#x5165;\(a\)&amp;#x4E0A;&amp;#x9677;&amp;#x5165;&amp;#x6B7B;&amp;#x5FAA;&amp;#x73AF;.
+  &amp;#x8BB0;&amp;#x6240;&amp;#x6709;&amp;#x53EF;&amp;#x8BA1;&amp;#x7B97;&amp;#x51FD;&amp;#x6570;&amp;#x6784;&amp;#x6210;&amp;#x7684;&amp;#x96C6;&amp;#x5408;&amp;#x4E3A;\(\mathbb{C}\mathbb{F}\).
+  &amp;#x82E5;&amp;#x51FD;&amp;#x6570;\(F \in
+  \mathbb{C}\mathbb{F}\)&amp;#x5728;&amp;#x4EFB;&amp;#x4F55;&amp;#x8F93;&amp;#x5165;&amp;#x4E0A;&amp;#x90FD;&amp;#x4E0D;&amp;#x4F1A;&amp;#x9677;&amp;#x5165;&amp;#x6B7B;&amp;#x5FAA;&amp;#x73AF;,
+  &amp;#x5219;&amp;#x79F0;\(F\)&amp;#x4E3A;&lt;strong&gt;&amp;#x5168;&amp;#x53EF;&amp;#x8BA1;&amp;#x7B97;&amp;#x51FD;&amp;#x6570;&lt;/strong&gt;,
+  &amp;#x8BB0;&amp;#x6240;&amp;#x6709;&amp;#x5168;&amp;#x53EF;&amp;#x8BA1;&amp;#x7B97;&amp;#x51FD;&amp;#x6570;&amp;#x6784;&amp;#x6210;&amp;#x7684;&amp;#x96C6;&amp;#x5408;&amp;#x4E3A;\(\mathbb{R}\mathbb{C}\mathbb{F}\).
+&lt;/p&gt;
+&lt;p style="margin-top: 1em; margin-bottom: 1em"&gt;
+  &lt;strong&gt;Remark &lt;class style="font-style: normal"&gt;1&lt;/class&gt;.
+  &lt;/strong&gt;&amp;#x672C;&amp;#x6587;&amp;#x542B;&amp;#x6709;&amp;#x62BD;&amp;#x8C61;&amp;#x7684;&amp;#x903B;&amp;#x8F91;&amp;#x63A8;&amp;#x7406;,
+  &amp;#x540C;&amp;#x65F6;&amp;#x4E5F;&amp;#x5BF9;&amp;#x5F88;&amp;#x591A;&amp;#x547D;&amp;#x9898;&amp;#x8FDB;&amp;#x884C;&amp;#x4E86;&amp;#x76F4;&amp;#x89C2;&amp;#x7684;&amp;#x89E3;&amp;#x91CA;.
+&lt;/p&gt;
+&lt;h2 id="auto-2"&gt;2&lt;span style="margin-left: 1em"&gt;&lt;/span&gt;&amp;#x57FA;&amp;#x672C;&amp;#x6982;&amp;#x5FF5;&lt;span style="margin-left: 1em"&gt;&lt;/span&gt;&lt;/h2&gt;
+&lt;p style="margin-top: 1em; margin-bottom: 1em"&gt;
+  &lt;strong&gt;Proposition &lt;class style="font-style: normal"&gt;2&lt;/class&gt;.
+  &lt;/strong&gt;&lt;i&gt;&amp;#x5B58;&amp;#x5728;&amp;#x53CC;&amp;#x5C04;\(F : \mathbb{N}^2
+  \rightarrow \mathbb{N}\), &amp;#x4F7F;&amp;#x5F97;\(F\)&amp;#x548C;\(F^{-
+  1}\)&amp;#x90FD;&amp;#x662F;&amp;#x53EF;&amp;#x8BA1;&amp;#x7B97;&amp;#x51FD;&amp;#x6570;.
+  &amp;#x4F8B;&amp;#x5982;, &amp;#x53D6;\(F (m, n) = 2^m (n + 1) - 1\).&lt;/i&gt;
+&lt;/p&gt;
+&lt;p style="margin-top: 1em; margin-bottom: 1em"&gt;
+  &lt;strong&gt;Proposition &lt;class style="font-style: normal"&gt;3&lt;/class&gt;. &lt;/strong&gt;&lt;i&gt;&lt;class style="font-style: normal"&gt;&lt;strong&gt;(&amp;#x590D;&amp;#x5408;)
+  &lt;/strong&gt;&lt;/class&gt;&amp;#x8BBE;\(F, G \in \mathbb{C}\mathbb{F}\), &amp;#x5219;\(F
+  \circ G \in \mathbb{C}\mathbb{F}\). (\(补充定义\)\(F (\bot) =
+  \bot\))&lt;/i&gt;
+&lt;/p&gt;
+&lt;p style="margin-top: 1em; margin-bottom: 1em"&gt;
+  &lt;strong&gt;Remark &lt;class style="font-style: normal"&gt;4&lt;/class&gt;.
+  &lt;/strong&gt;&amp;#x5728;&amp;#x540E;&amp;#x6587;&amp;#x4E2D;,
+  &amp;#x6211;&amp;#x4EEC;&amp;#x4E0D;&amp;#x52A0;&amp;#x8BF4;&amp;#x660E;&amp;#x5730;&amp;#x628A;&amp;#x591A;&amp;#x5143;&amp;#x51FD;&amp;#x6570;&amp;#x770B;&amp;#x4F5C;&amp;#x4E00;&amp;#x5143;&amp;#x51FD;&amp;#x6570;,
+  &amp;#x4EE5;&amp;#x4E0A;&amp;#x4E24;&amp;#x547D;&amp;#x9898;&amp;#x4FDD;&amp;#x8BC1;&amp;#x4E86;&amp;#x8FD9;&amp;#x6837;&amp;#x505A;&amp;#x7684;&amp;#x5408;&amp;#x7406;&amp;#x6027;.
+&lt;/p&gt;
+&lt;p style="margin-top: 1em; margin-bottom: 1em"&gt;
+  &lt;strong&gt;Remark &lt;class style="font-style: normal"&gt;5&lt;/class&gt;.
+  &lt;/strong&gt;&amp;#x5728;&amp;#x540E;&amp;#x6587;&amp;#x4E2D;&amp;#x6211;&amp;#x4EEC;&amp;#x6781;&amp;#x9891;&amp;#x7E41;&amp;#x5730;&amp;#x7528;&amp;#x5230;&amp;#x590D;&amp;#x5408;&amp;#x51FD;&amp;#x6570;&amp;#x7684;&amp;#x53EF;&amp;#x8BA1;&amp;#x7B97;&amp;#x6027;,
+  &amp;#x7528;&amp;#x5230;&amp;#x65F6;&amp;#x4E0D;&amp;#x4F1A;&amp;#x663E;&amp;#x5F0F;&amp;#x5730;&amp;#x6307;&amp;#x51FA;.
+&lt;/p&gt;
+&lt;p style="margin-top: 1em; margin-bottom: 1em"&gt;
+  &lt;strong&gt;Remark &lt;class style="font-style: normal"&gt;6&lt;/class&gt;.
+  &lt;/strong&gt;&amp;#x53EF;&amp;#x4EE5;&amp;#x4ECE;&amp;#x7A0B;&amp;#x5E8F;&amp;#x9677;&amp;#x5165;&amp;#x6B7B;&amp;#x5FAA;&amp;#x73AF;&amp;#x7684;&amp;#x89D2;&amp;#x5EA6;&amp;#x6765;&amp;#x7406;&amp;#x89E3;&amp;#x5B9A;&amp;#x4E49;\(F
+  (\bot) = \bot\)&amp;#x7684;&amp;#x5408;&amp;#x7406;&amp;#x6027;. &amp;#x603B;&amp;#x4E4B;,
+  &amp;#x8865;&amp;#x5145;&amp;#x8FD9;&amp;#x4E2A;&amp;#x5B9A;&amp;#x4E49;&amp;#x4E0D;&amp;#x4F1A;&amp;#x5F15;&amp;#x5165;&amp;#x8C2C;&amp;#x8BEF;,
+  &amp;#x540C;&amp;#x65F6;&amp;#x8BA9;&amp;#x4E00;&amp;#x4E9B;&amp;#x95EE;&amp;#x9898;&amp;#x7684;&amp;#x8868;&amp;#x8FF0;&amp;#x66F4;&amp;#x7B80;&amp;#x6D01;.
+&lt;/p&gt;
+&lt;p style="margin-top: 1em; margin-bottom: 1em"&gt;
+  &lt;strong&gt;Proposition &lt;class style="font-style: normal"&gt;7&lt;/class&gt;. &lt;/strong&gt;&lt;i&gt;&lt;class style="font-style: normal"&gt;&lt;strong&gt;(&amp;#x7A7A;&amp;#x51FD;&amp;#x6570;)
+  &lt;/strong&gt;&lt;/class&gt;\(\exists \operatorname{Empty} \in
+  \mathbb{C}\mathbb{F}, \forall x \in
+</code></pre>
+<p>\mathbb{N}, \operatorname{Empty} (x)
+      = \bot).</i>
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>Remark <class style="font-style: normal">8</class>.
+      </strong>&#x672C;&#x6587;&#x7684;&#x51FD;&#x6570;&#x547D;&#x540D;&#x9075;&#x5FAA;&#x9996;&#x5B57;&#x6BCD;&#x5927;&#x5199;&#x7684;&#x89C4;&#x5219;.
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>Remark <class style="font-style: normal">9</class>.
+      </strong>&#x7B26;&#x53F7;&quot;=&quot;&#x6709;&#x65F6;&#x8868;&#x793A;&#x51FD;&#x6570;&#x7684;&#x76F8;&#x7B49;,
+      &#x6709;&#x65F6;&#x8868;&#x793A;&#x4E24;&#x4E2A;&#x81EA;&#x7136;&#x6570;&#x76F8;&#x7B49;,
+      &#x8FD9;&#x4E24;&#x79CD;&#x60C5;&#x51B5;&#x5728;&#x524D;&#x6587;&#x90FD;&#x51FA;&#x73B0;&#x8FC7;.
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>Proposition <class style="font-style: normal">10</class>. </strong><i><class style="font-style: normal"><strong>(&#x6052;&#x7B49;&#x51FD;&#x6570;)
+      </strong></class>(\exists \operatorname{Id} \in
+      \mathbb{R}\mathbb{C}\mathbb{F}, \forall x \in
+\mathbb{N},
+      \operatorname{Id} (x) = x).</i>
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>Proposition <class style="font-style: normal">11</class>. </strong><i><class style="font-style: normal"><strong>(&#x6295;&#x5F71;&#x51FD;&#x6570;)
+      </strong></class>(\exists \operatorname{First}, \operatorname{Second}
+      \in
+\mathbb{R}\mathbb{C}\mathbb{F}, \forall x \in \mathbb{N},
+      \operatorname{First}
+(x, y) = x, \operatorname{Second} (x, y) = y).</i>
+    </p>
+    <p>
+      &#x4EE5;&#x4E0A;&#x51E0;&#x4E2A;&#x547D;&#x9898;&#x53EF;&#x4EE5;&#x7528;&#x7F16;&#x7A0B;&#x8BC1;&#x660E;.
+    </p>
+    <p style="margin-top: 1em">
+      <strong>Proposition <class style="font-style: normal">12</class>. </strong><i><class style="font-style: normal"><strong>(Church&#x516C;&#x7406;)
+      </strong></class>(\exists [] : N \rightarrow \mathbb{C}\mathbb{F}),
+      &#x6EE1;&#x8DB3;:</i>
+    </p>
+    <p>
+      <i>(Universal) (\exists U \in \mathbb{C}\mathbb{F}, \forall n, x \in N,
+      U (n, y) = [n] (x)); ((定义 [\bot] =\operatorname{Empty}))</i>
+    </p>
+    <p style="margin-bottom: 1em">
+      <i>(Godel, &#x5B8C;&#x5907;&#x6027;) (\forall U \in
+      \mathbb{C}\mathbb{F}, \exists V \in
+\mathbb{R}\mathbb{C}\mathbb{F},
+      \forall n, x \in N, [V (n)] (x) = U (n, x)).</i>
+    </p>
+    <p>
+      Church&#x516C;&#x7406;&#x8868;&#x660E;&#x4E86;&quot;&#x8BA1;&#x7B97;&quot;&#x5177;&#x6709;&#x5F3A;&#x5927;&#x7684;&#x80FD;&#x529B;,
+      &#x4E0B;&#x6587;&#x5927;&#x591A;&#x6570;&#x547D;&#x9898;&#x7684;&#x8BC1;&#x660E;&#x90FD;&#x9700;&#x8981;&#x7528;&#x5230;Church&#x516C;&#x7406;.
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>Proposition <class style="font-style: normal">13</class>. </strong><i><class style="font-style: normal"><strong>(&#x901A;&#x7528;&#x6027;)
+      </strong></class>(\forall F \in \mathbb{C}\mathbb{F}, \exists m \in
+      \mathbb{N}, [m] = F).</i>
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>Proof. </strong>&#x5728;Godel&#x516C;&#x7406;&#x4E2D;&#x53D6;(U
+      (n, x) = F (x)), &#x4E8E;&#x662F;(\exists U \in
+      {\mathbb{R}\mathbb{C}\mathbb{F}}, \forall n, x \in N, [U (n)]
+(x) = F
+      (x)), &#x56E0;&#x6B64;(\forall n, [U (n)] = F), &#x53D6;(m = U
+      (0)).<span style="margin-left: 1em"></span>(\Box)
+    </p>
+    <p>
+      &#x4ECE;&#x7F16;&#x53F7;&#x7684;&#x89D2;&#x5EA6;&#x6765;&#x7406;&#x89E3;,
+      &#x8FD9;&#x4E2A;&#x547D;&#x9898;&#x8868;&#x660E;,
+      &#x6211;&#x4EEC;&#x6CA1;&#x6709;&#x9057;&#x6F0F;&#x5730;&#x8D4B;&#x4E88;&#x4E86;&#x6BCF;&#x4E2A;(F
+      \in \mathbb{C}\mathbb{F})&#x4E00;&#x4E2A;&#x5E8F;&#x53F7;, (F =
+      [n])&#x8868;&#x793A;&#x51FD;&#x6570;(F)&#x7684;&#x5E8F;&#x53F7;&#x662F;(n).
+      &#x6B64;&#x5916;,
+      &#x53EF;&#x80FD;&#x6709;&#x591A;&#x4E2A;&#x4E0D;&#x540C;&#x5E8F;&#x53F7;&#x6307;&#x5411;&#x540C;&#x4E00;&#x4E2A;(F).
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>Proposition <class style="font-style: normal">14</class>. </strong><i><class style="font-style: normal"><strong>(&#x5BF9;&#x89D2;&#x7EBF;&#x51FD;&#x6570;)
+      </strong></class>(\exists \operatorname{Diag} \in \mathbb{C}\mathbb{F},
+      \forall x \in
+\mathbb{N}, \operatorname{Diag} (x) = [x] (x)).</i>
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>Proof. </strong>&#x4EE4;(\operatorname{Diag} (x)
+      =\operatorname{Universal} (x, x)).<span style="margin-left: 1em"></span>(\Box)
+    </p>
+    <h2 id="auto-3">3<span style="margin-left: 1em"></span>&#x4F8B;&#x9898;<span style="margin-left: 1em"></span></h2>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>Proposition <class style="font-style: normal">15</class>. </strong><i><class style="font-style: normal"><strong>(&#x901A;&#x7528;&#x51FD;&#x6570;)
+      </strong></class>(\exists \operatorname{Universal} \in
+      \mathbb{C}\mathbb{F}), (\forall F \in \mathbb{C}\mathbb{F}),
+      (\exists n \in \mathbb{N}), (\forall x \in \mathbb{N}),
+      (\operatorname{Universal} (x) = x).</i>
+    </p>
+    <p>
+      &#x9017;&#x53F7;&#x540E;&#x9762;&#x6709;&#x7A7A;&#x683C;.
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>Proposition <class style="font-style: normal">16</class>. </strong><i><class style="font-style: normal"><strong>(Const&#x51FD;&#x6570;)
+      </strong></class>(\exists \operatorname{Const} \in
+      \mathbb{R}\mathbb{C}\mathbb{F}, \forall x, y
+\in \mathbb{N},
+      [\operatorname{Const} (x)] (y) = x).</i>
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>Proof.
+      </strong>&#x5728;Godel&#x516C;&#x7406;&#x4E2D;&#x53D6;(U)&#x4E3A;&#x6295;&#x5F71;&#x51FD;&#x6570;(\operatorname{First}).<span
+      style="margin-left: 1em"></span>(\Box)
+    </p>
+    <p>
+      &#x4ECE;&#x7F16;&#x7A0B;&#x7684;&#x89D2;&#x5EA6;&#x6765;&#x7406;&#x89E3;,
+      Const&#x51FD;&#x6570;&#x8F93;&#x5165;(x),
+      &#x8F93;&#x51FA;&#x4E00;&#x4E2A;&#x80FD;&#x6253;&#x5370;(x)&#x7684;&#x56FE;&#x7075;&#x673A;(&#x7684;&#x7F16;&#x53F7;).
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>Proposition <class style="font-style: normal">17</class>. </strong><i><class style="font-style: normal"><strong>(Compose&#x51FD;&#x6570;)
+      </strong></class>(\exists \operatorname{Compose} \in
+      \mathbb{R}\mathbb{C}\mathbb{F}, \forall x,
+y, z \in \mathbb{N},
+      [\operatorname{Compose} (x, y)] (z) = [x] ([y] (z)))().</i>
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>Proof. </strong>(F (x, y, z) = [x] ([y] (z))),
+      &#x6CE8;&#x610F;&#x5230;([x] ([y] (z)) =\operatorname{Universal} (x,
+      \operatorname{Universal} (y, z))), &#x56E0;&#x6B64;(F \in
+      \mathbb{R}\mathbb{C}\mathbb{F}).
+      &#x518D;&#x7531;Godel&#x516C;&#x7406;&#x77E5;(\exists
+      \operatorname{Compose} \in \mathbb{R}\mathbb{C}\mathbb{F}, \forall x,
+y,
+      z \in \mathbb{N}, [\operatorname{Compose} (x, y)] (z) =)(F (x, y,
+      z)).<span style="margin-left: 1em"></span>(\Box)
+    </p>
+    <p>
+      &#x4ECE;&#x7F16;&#x53F7;&#x7684;&#x89D2;&#x5EA6;&#x6765;&#x7406;&#x89E3;,
+      &#x6211;&#x4EEC;&#x80FD;&#x591F;&#x7528;&#x51FD;&#x6570;(F,
+      G)&#x7684;&#x7F16;&#x53F7;&#x8BA1;&#x7B97;(F \circ
+      G)&#x7684;&#x7F16;&#x53F7;.
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>Proposition <class style="font-style: normal">18</class>. </strong><i><class style="font-style: normal"><strong>(&#x5EF6;&#x62D3;)
+      </strong></class>(\forall F \in \mathbb{C}\mathbb{F}, \exists G
+      \in
+\mathbb{R}\mathbb{C}\mathbb{F}, \forall x \in \mathbb{N}, [G (x)] =
+      [F (x)]).</i>
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>Proof. </strong>&#x8BBE;(U (x, y) = [F (x)]
+      (y))=Universal(F(x),y), &#x4E8E;&#x662F;(U \in \mathbb{C}\mathbb{F}),
+      &#x518D;&#x7531;Godel&#x516C;&#x7406;&#x77E5;(\exists G \in
+      \mathbb{R}\mathbb{C}\mathbb{F}, \forall x, y \in \mathbb{N}, [G
+(x)] (y)
+      = U (x, y) = [F (x)] (y)), &#x56E0;&#x6B64;([G (x)] = [F (x)]).<span
+      style="margin-left: 1em"></span>(\Box)
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>Proposition <class style="font-style: normal">19</class>. </strong><i><class style="font-style: normal"><strong>(&#x9012;&#x5F52;&#x5B9A;&#x7406;,
+      &#x4E0D;&#x52A8;&#x70B9;&#x5B9A;&#x7406;) </strong></class>(\forall H
+      \in \mathbb{R}\mathbb{C}\mathbb{F}, \exists n \in N, [H (n)] =
+      [n]).</i>
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>Proof. </strong>&#x7531;&#x5EF6;&#x62D3;&#x5B9A;&#x7406;,
+      (\exists G \in \mathbb{R}\mathbb{C}\mathbb{F}, \forall m \in
+      \mathbb{N}, [G
+(m)] = [\operatorname{Diag} (m)]). &#x4EE4;(T = H \circ
+      G), &#x4E8E;&#x662F;, ([H (G (t))] = [T (t)] = [\operatorname{Diag}
+      (t)] = [G (t)]). &#x53D6;(n = G (t)). ((n \neq \bot),
+      &#x56E0;&#x4E3A;(T = H \circ G \in
+      \mathbb{R}\mathbb{C}\mathbb{F}))<span style="margin-left: 1em"></span>(\Box)
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>Proposition <class style="font-style: normal">20</class>. </strong><i><class style="font-style: normal"><strong>(&#x9012;&#x5F52;&#x5B9A;&#x7406;)
+      </strong></class> (\forall V \in \mathbb{C}\mathbb{F}, \exists n \in
+      \mathbb{N}, \forall x \in
+\mathbb{N}, [n] (x) = V (n, x)).</i>
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>Proof. </strong>&#x7531;Godel&#x516C;&#x7406;, (\exists H \in
+      \mathbb{R}\mathbb{C}\mathbb{F}, [H (n)] (x) = V (n, x)).
+      &#x518D;&#x53D6;(n)&#x4E3A;(H)&#x7684;&#x4E0D;&#x52A8;&#x70B9;.<span
+      style="margin-left: 1em"></span>(\Box)
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>Proposition <class style="font-style: normal">21</class>. </strong><i><class style="font-style: normal"><strong>(&#x8F93;&#x51FA;&#x81EA;&#x8EAB;&#x7684;&#x56FE;&#x7075;&#x673A;)
+      </strong></class>(\exists n \in \mathbb{N}, \forall x \in \mathbb{N},
+      [n] (x) = n).</i>
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>Proof.
+      </strong>&#x53D6;(n)&#x4E3A;(\operatorname{Const})&#x7684;&#x4E0D;&#x52A8;&#x70B9;.<span
+      style="margin-left: 1em"></span>(\Box)
+    </p>
+    <p style="margin-top: 1em">
+      <strong>Proof. </strong>&#x4EE4;(B (m) =\operatorname{Compose} (m,
+      \operatorname{Const} (m))), &#x8BBE;([b] = B), &#x4EE4;(n
+      =\operatorname{Compose} (b, \operatorname{Const} (b))), 
+    </p>
+    <p>
+      &#x4E8E;&#x662F;(\forall x \in \mathbb{N}), &#x6709;
+    </p>
+    <center>
+      \begin{eqnarray<em>}
+  {}[n] (x) &amp; = &amp; [\operatorname{compose} (b, c (b))]
+      (x)\
+  &amp; = &amp; [b] ([c (b)] (x))\
+  &amp; = &amp; B (b)\
+  &amp; = &amp;
+      \operatorname{Compose} (b, \operatorname{Const} (b))\
+  &amp; = &amp;
+      n
+\end{eqnarray</em>}
+    </center>
+    <p style="margin-bottom: 1em">
+      <span style="margin-left: 1em"></span>(\Box)
+    </p></p> -->
+              
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href=".." class="btn btn-neutral float-left" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
