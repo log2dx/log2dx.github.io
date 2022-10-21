@@ -60,11 +60,11 @@
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-2><vspace|0.5fn>
 
-      <with|par-left|<quote|1tab>|2.1<space|2spc>Texmacs<locus|<id|%ACC200C-A774AB8>|<link|hyperlink|<id|%ACC200C-A774AB8>|<url|https://texmacs.org/>>|(\<#8F6C\>\<#5230\>\<#5B98\>\<#7F51\>)>
+      <with|par-left|<quote|1tab>|2.1<space|2spc>Texmacs<locus|<id|%8F2DD5C-AA502C8>|<link|hyperlink|<id|%8F2DD5C-AA502C8>|<url|https://texmacs.org/>>|(\<#8F6C\>\<#5230\>\<#5B98\>\<#7F51\>)>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-3>>
 
-      <with|par-left|<quote|1tab>|2.2<space|2spc>MkDocs<locus|<id|%ACC200C-A6F2950>|<link|hyperlink|<id|%ACC200C-A6F2950>|<url|https://www.mkdocs.org/>>|(\<#8F6C\>\<#5230\>\<#5B98\>\<#7F51\>)>
+      <with|par-left|<quote|1tab>|2.2<space|2spc>MkDocs<locus|<id|%8F2DD5C-AAD38D0>|<link|hyperlink|<id|%8F2DD5C-AAD38D0>|<url|https://www.mkdocs.org/>>|(\<#8F6C\>\<#5230\>\<#5B98\>\<#7F51\>)>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-4>>
     </associate>
