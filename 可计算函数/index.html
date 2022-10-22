@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>可计算函数 - 笔记</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "\u53ef\u8ba1\u7b97\u51fd\u6570";
+        var mkdocs_page_input_path = "\u53ef\u8ba1\u7b97\u51fd\u6570.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> 笔记
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">可计算函数</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">笔记</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+      <li>可计算函数</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+
+              <script language="javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+              <style>
+                p > i {
+                  font-style: normal;
+                  color: darkblue;
+                  font-family: serif;
+                }
+              </style>
+              
+                    <div class="toggle" style="display: none">
+      <p>
+        
+      </p>
+    </div>
+    <h2 id="auto-1">1<span style="margin-left: 1em"></span>&#x4ECB;&#x7ECD;<span style="margin-left: 1em"></span></h2>
+    <p>
+      &#x4E0B;&#x9762;&#x5148;&#x89C4;&#x5B9A;&#x4E00;&#x4E9B;&#x8BB0;&#x53F7;.
+    </p>
+    <ul>
+      <li>
+        <p>
+          \(f \in \operatorname{CF}\): \(f\)&#x662F;\(N \rightarrow
+          N\)&#x7684;<strong>&#x53EF;&#x8BA1;&#x7B97;&#x51FD;&#x6570;</strong>(computable
+          function).
+        </p>
+      </li>
+      <li>
+        <p>
+          \(f (x) = \bot\): &#x51FD;&#x6570;\(f \in
+          \operatorname{CF}\)&#x5728;\(x\)&#x5904;&#x65E0;&#x5B9A;&#x4E49;,
+          &#x5373;&#x8BA1;&#x7B97;\(f\)&#x7684;<strong>&#x56FE;&#x7075;&#x673A;</strong>&#x5728;&#x8F93;&#x5165;\(x\)&#x4E0A;&#x9677;&#x5165;&#x6B7B;&#x5FAA;&#x73AF;.
+        </p>
+      </li>
+      <li>
+        <p>
+          \(f \in \operatorname{RCF}\): \(f\)&#x662F;\(N \rightarrow
+          N\)&#x7684;<strong>&#x5168;&#x53EF;&#x8BA1;&#x7B97;&#x51FD;&#x6570;</strong>,
+          &#x5373;\(f\)&#x5728;&#x6BCF;&#x4E2A;&#x81EA;&#x7136;&#x6570;\(x\)&#x4E0A;&#x90FD;&#x6709;&#x5B9A;&#x4E49;.
+        </p>
+      </li>
+      <li>
+        <p>
+          \(m \in \operatorname{TM}\): \(m\)&#x662F;\(N \rightarrow
+          N\)&#x7684;<strong>&#x56FE;&#x7075;&#x673A;</strong>(turing machine,
+          &#x662F;&#x4E00;&#x79CD;<strong>&#x8BA1;&#x7B97;&#x6A21;&#x578B;</strong>)&#x7684;&#x5B57;&#x7B26;&#x4E32;<strong>&#x8868;&#x793A;</strong>.
+          \(\operatorname{TM}\)&#x662F;&#x4E00;&#x4E2A;<strong>&#x79BB;&#x6563;&#x7ED3;&#x6784;</strong>(&#x5168;&#x4F53;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x4E00;&#x4E2A;&#x5B50;&#x96C6;).
+        </p>
+      </li>
+      <li>
+        <p>
+          \(y = m (x)\): &#x56FE;&#x7075;&#x673A;\(m \in
+          \operatorname{TM}\)&#x5728;<strong>&#x8F93;&#x5165;</strong>\(x\)&#x4E0A;&#x7684;<strong>&#x8F93;&#x51FA;</strong>&#x4E3A;\(y\).
+        </p>
+      </li>
+      <li>
+        <p>
+          \(x, y, z \in N\): &#x901A;&#x5E38;&#x7528;\(x, y,
+          z\)&#x8868;&#x793A;&#x81EA;&#x7136;&#x6570;.
+        </p>
+      </li>
+      <li>
+        <p>
+          \(f, g, h \in \operatorname{CF}\): &#x901A;&#x5E38;&#x7528;\(f, g,
+          h\)&#x8868;&#x793A;&#x51FD;&#x6570;.
+        </p>
+      </li>
+    </ul>
+    <p>
+      &#x628A;&#x81EA;&#x7136;&#x6570;&#x96C6;&#x5408;&#x8BB0;&#x4F5C;\(\mathbb{N}\)&#x800C;&#x975E;\(N\)&#x662F;&#x4E00;&#x79CD;&quot;&#x968F;&#x610F;&#x5730;&#x5F15;&#x5165;&#x65B0;&#x8BB0;&#x53F7;&quot;&#x7684;&#x884C;&#x4E3A;.
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>&#x95EE;&#x9898; <class style="font-style: normal">1</class>.
+      </strong>&#x5355;&#x4E2A;&#x5B57;&#x6BCD;&#x4F55;&#x65F6;&#x4F7F;&#x7528;&#x6B63;&#x4F53;,
+      &#x4F55;&#x65F6;&#x4F7F;&#x7528;&#x659C;&#x4F53;?
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>&#x547D;&#x9898; <class style="font-style: normal">1</class>.
+      </strong><i>&#x5B58;&#x5728;&#x53CC;&#x5C04;\(f : N \rightarrow
+      \operatorname{TM}\), &#x4F7F;&#x5F97;\(f\)&#x548C;\(f^{-
+      1}\)&#x90FD;&#x662F;&#x53EF;&#x8BA1;&#x7B97;&#x51FD;&#x6570;.</i>
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>&#x8BC1;&#x660E;.
+      </strong>(&#x8D75;)&#x7528;URM&#x6A21;&#x578B;&#x6784;&#x9020;\(f\).<span
+      style="margin-left: 1em"></span>\(\Box\)
+    </p>
+    <p>
+      &#x8FD9;&#x4E2A;&#x547D;&#x9898;&#x8868;&#x660E;&#x6211;&#x4EEC;&#x65E0;&#x9700;&#x533A;&#x5206;\(\operatorname{TM}\)&#x548C;\(N\).
+      &#x76F4;&#x89C2;&#x6765;&#x770B;,
+      \(f\)&#x4E3A;&#x56FE;&#x7075;&#x673A;&#x7F16;&#x4E86;<strong>&#x5E8F;&#x53F7;</strong>.
+      &#x6211;&#x4EEC;&#x8BB0;\(x
+      (y)\)&#x4E3A;&#x7B2C;\(x\)&#x53F7;&#x56FE;&#x7075;&#x673A;&#x5728;&#x8F93;&#x5165;\(y\)&#x4E0A;&#x7684;&#x8F93;&#x51FA;&#x4E3A;\(x
+      (y)\).
+    </p>
+    <h2 id="auto-2">2<span style="margin-left: 1em"></span>&#x7528;&#x7F16;&#x7A0B;&#x8BC1;&#x660E;&#x7684;&#x547D;&#x9898;<span
+    style="margin-left: 1em"></span></h2>
+    <p>
+      &#x672C;&#x8282;&#x7684;&#x547D;&#x9898;&#x53EF;&#x4EE5;&#x7528;&#x7F16;&#x5199;<strong>&#x8BA1;&#x7B97;&#x673A;&#x7A0B;&#x5E8F;</strong>&#x6765;&#x8BC1;&#x660E;.
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>&#x547D;&#x9898; <class style="font-style: normal">2</class>. </strong><i><class
+      style="font-style: normal"><strong>(&#x590D;&#x5408;(compose)&#x6027;&#x8D28;)
+      </strong></class>&#x8BBE;\(f \in \operatorname{CF}, g \in
+      \operatorname{CF}\), &#x5219;\(f \circ g \in \operatorname{CF}\).</i>
+    </p>
+    <p>
+      &#x6B64;&#x547D;&#x9898;&#x8868;&#x660E;&#x53EF;&#x8BA1;&#x7B97;&#x51FD;&#x6570;&#x7684;<strong>&#x590D;&#x5408;</strong>&#x4ECD;&#x662F;&#x53EF;&#x8BA1;&#x7B97;&#x7684;.
+      &#x5BF9;&#x4E8E;&#x65E0;&#x5B9A;&#x4E49;&#x7684;&#x60C5;&#x5F62;,
+      &#x82E5;\(g (x) = \bot\), &#x5219;\(f (g (x)) = \bot\).
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>&#x547D;&#x9898; <class style="font-style: normal">3</class>.
+      </strong><i>&#x5B58;&#x5728;&#x53CC;&#x5C04;\(f : N^2 \rightarrow N\),
+      &#x4F7F;&#x5F97;\(f\)&#x548C;\(f^{-
+      1}\)&#x90FD;&#x662F;&#x53EF;&#x8BA1;&#x7B97;&#x51FD;&#x6570;.</i>
+    </p>
+    <p>
+      &#x4F8B;&#x5982;, &#x53D6;\(f (x, y) = 2^x (y + 1) - 1\).
+    </p>
+    <p>
+      &#x4E0A;&#x9762;&#x4E24;&#x4E2A;&#x547D;&#x9898;&#x8868;&#x660E;&#x6211;&#x4EEC;&#x65E0;&#x9700;&#x533A;&#x5206;<strong>&#x591A;&#x5143;&#x51FD;&#x6570;</strong>&#x548C;<strong>&#x4E00;&#x5143;&#x51FD;&#x6570;</strong>.
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>&#x547D;&#x9898; <class style="font-style: normal">4</class>. </strong><i><class
+      style="font-style: normal"><strong>(&#x901A;&#x7528;(universal)&#x51FD;&#x6570;)
+      </strong></class>\(\exists u \in \operatorname{CF}, \forall x, y \in N,
+      u (x, y) = x (y)\).</i>
+    </p>
+    <p>
+      &#x6B64;&#x547D;&#x9898;&#x8868;&#x660E;<strong>&#x53EF;&#x8BA1;&#x7B97;&#x51FD;&#x6570;</strong>&#x5177;&#x6709;<strong>&#x6A21;&#x62DF;</strong>(simulate)&#x4EFB;&#x610F;(&#x7F16;&#x53F7;&#x4E3A;\(m\)&#x7684;)&#x56FE;&#x7075;&#x673A;&#x7684;<strong>&#x80FD;&#x529B;</strong>.
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>&#x547D;&#x9898; <class style="font-style: normal">5</class>. </strong><i><class
+      style="font-style: normal"><strong>(Godel) </strong></class>\(\forall f \in
+      \operatorname{CF}, \exists g \in \operatorname{RCF}, \forall x,
+y \in N,
+      g (x) (y) = f (x, y)\).</i>
+    </p>
+    <p>
+      &#x6211;&#x4EEC;&#x5728;\(f (x,
+      y)\)&#x4E2D;&#x5148;&#x56FA;&#x5B9A;\(x\),
+      &#x5F97;&#x5230;&#x4E00;&#x4E2A;&#x5173;&#x4E8E;\(y\)&#x7684;&#x51FD;&#x6570;,
+      &#x8FD9;&#x6B63;&#x662F;&#x7F16;&#x53F7;&#x4E3A;\(g
+      (x)\)&#x7684;&#x56FE;&#x7075;&#x673A;&#x6240;&#x8BA1;&#x7B97;&#x7684;.
+      &#x6B64;&#x547D;&#x9898;&#x8868;&#x660E;&#x53EF;&#x8BA1;&#x7B97;&#x51FD;&#x6570;&#x5177;&#x6709;&#x628A;\(x\)&#x53D8;&#x6210;\(g
+      (x)\)&#x7684;<strong>&#x80FD;&#x529B;</strong>.
+    </p>
+    <h2 id="auto-3">3<span style="margin-left: 1em"></span>&#x7528;&#x65E7;&#x547D;&#x9898;&#x8BC1;&#x660E;&#x65B0;&#x547D;&#x9898;<span
+    style="margin-left: 1em"></span></h2>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>&#x547D;&#x9898; <class style="font-style: normal">6</class>. </strong><i><class
+      style="font-style: normal"><strong>(&#x5BF9;&#x89D2;&#x7EBF;(diagonal)&#x51FD;&#x6570;)
+      </strong></class>\(\exists d \in \operatorname{CF}, \forall x \in N, d
+      (x) = x (x)\).</i>
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>&#x8BC1;&#x660E;.
+      </strong>&#x8BBE;\(u\)&#x4E3A;&#x901A;&#x7528;&#x51FD;&#x6570;,
+      &#x4EE4;\(d (x) = u (x, x)\).<span style="margin-left: 1em"></span>\(\Box\)
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>&#x547D;&#x9898; <class style="font-style: normal">7</class>. </strong><i><class
+      style="font-style: normal"><strong>(&#x590D;&#x5408;) </strong></class>\(\exists c \in
+      \operatorname{RCF}, \forall x, y, z \in \mathbb{N}, c (x, y) (z)
+= x (y
+      (z))\)\(\).</i>
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>&#x8BC1;&#x660E;. </strong>&#x663E;&#x7136;.<span style="margin-left: 1em"></span>\(\Box\)
+    </p>
+    <p>
+      &#x51FD;&#x6570;\(c\)&#x5177;&#x6709;&#x8FD9;&#x6837;&#x7684;<strong>&#x80FD;&#x529B;</strong>:
+      &#x8F93;&#x5165;&#x56FE;&#x7075;&#x673A;\(x,
+      y\)(&#x7684;&#x7F16;&#x53F7;),
+      &#x8F93;&#x51FA;&#x4E00;&#x4E2A;&#x80FD;&#x8BA1;&#x7B97;\(x \circ
+      y\)&#x7684;&#x56FE;&#x7075;&#x673A;(&#x7684;&#x7F16;&#x53F7;).
+    </p>
+    <p style="margin-top: 1em">
+      <strong>&#x547D;&#x9898; <class style="font-style: normal">8</class>. </strong><i><class
+      style="font-style: normal"><strong>(&#x5EF6;&#x62D3;) </strong></class>\(\forall f \in
+      \operatorname{CF}, \exists g \in \operatorname{RCF}, \forall x,
+y\),
+      &#x6709;</i>
+    </p>
+    <p style="margin-bottom: 1em">
+      <i><center>
+        \(\displaystyle g (x) (y) = \left\{ \begin{array}{cc}
+  f (x) (y) & ,
+        f (x) \neq \bot\\
+  \bot & , f (x) = \bot
+\end{array} \right.\)
+      </center></i>
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>&#x8BC1;&#x660E;.
+      </strong>&#x8BBE;\(u\)&#x4E3A;&#x901A;&#x7528;&#x51FD;&#x6570;,
+      &#x4EE4;\(g (x) (y) = u (d (x), y)\).<span style="margin-left: 1em"></span>\(\Box\)
+    </p>
+    <p>
+      &#x6B64;&#x8BC1;&#x660E;&#x9690;&#x5F0F;&#x5730;&#x4F7F;&#x7528;&#x4E86;&#x590D;&#x5408;&#x6027;&#x8D28;&#x548C;Godel&#x5B9A;&#x7406;.
+      &#x5E8F;&#x53F7;&#x4E3A;\(g (x)\)&#x548C;\(f
+      (x)\)&#x7684;&#x56FE;&#x7075;&#x673A;&#x8868;&#x793A;&#x4E86;&#x540C;&#x4E00;&#x4E2A;&#x53EF;&#x8BA1;&#x7B97;&#x51FD;&#x6570;,
+      &#x8FD9;&#x662F;&quot;&#x5EF6;&#x62D3;&quot;&#x7684;&#x542B;&#x4E49;.
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>&#x547D;&#x9898; <class style="font-style: normal">9</class>. </strong><i><class
+      style="font-style: normal"><strong>(&#x9012;&#x5F52;&#x5B9A;&#x7406;,
+      &#x4E0D;&#x52A8;&#x70B9;&#x5B9A;&#x7406;) </strong></class>\(\forall h
+      \in \operatorname{RCF}, \exists n, \forall x, h (n) (x) = n (x)\).</i>
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>&#x8BC1;&#x660E;. </strong>&#x8BBE;\(g \in
+      \operatorname{RCF}\)&#x662F;&#x5BF9;&#x89D2;&#x7EBF;&#x51FD;&#x6570;\(d\)&#x7684;&#x5EF6;&#x62D3;.
+      &#x8BBE;\(f \in N\)&#x8BA1;&#x7B97;\(h \circ g\).
+      &#x4E8E;&#x662F;\(\forall x, h (g (f)) (x) = f (f) (x) = d (f) (x) = g
+      (f) (x)\). &#x53D6;\(n = g (f)\).<span style="margin-left: 1em"></span>\(\Box\)
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>&#x547D;&#x9898; <class style="font-style: normal">10</class>. </strong><i><class
+      style="font-style: normal"><strong>(&#x9012;&#x5F52;&#x5B9A;&#x7406;) </strong></class>
+      \(\forall V \in \operatorname{CF}, \exists n, \forall x\), &#x6709;\(n
+      (x) = V (n, x)\).</i>
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>&#x8BC1;&#x660E;. </strong>&#x8BBE;\(h \in \operatorname{RCF}\),
+      &#x6EE1;&#x8DB3;\(\forall n, x\), &#x6709;\(h (n) (x) = V (n, x)\).
+      &#x518D;&#x53D6;\(n\)&#x4E3A;\(h\)&#x7684;&#x4E0D;&#x52A8;&#x70B9;.<span
+      style="margin-left: 1em"></span>\(\Box\)
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>&#x547D;&#x9898; <class style="font-style: normal">11</class>. </strong><i><class
+      style="font-style: normal"><strong>(&#x8F93;&#x51FA;&#x81EA;&#x8EAB;&#x7684;&#x56FE;&#x7075;&#x673A;)
+      </strong></class>\(\exists n \in \mathbb{N}, \forall x \in \mathbb{N}, n
+      (x) = n\).</i>
+    </p>
+    <p style="margin-top: 1em; margin-bottom: 1em">
+      <strong>&#x8BC1;&#x660E;. </strong>&#x8BBE;\(\forall x, y \in N,
+      \operatorname{const} (x) (y) = x\),
+      &#x53D6;\(n\)&#x4E3A;\(\operatorname{const}\)&#x7684;&#x4E0D;&#x52A8;&#x70B9;.<span
+      style="margin-left: 1em"></span>\(\Box\)
+    </p>
+              
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href=".." class="btn btn-neutral float-left" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
